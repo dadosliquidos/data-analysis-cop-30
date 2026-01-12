@@ -16,6 +16,7 @@ from classes.visualization.plot_word_cloud import Plot_word_cloud
 from classes.visualization.plot_bar import Plot_bar
 from classes.process.analyze_sentiment  import Analyzer
 from database.database import DB
+from database.normalization_comments import Normalization_comments
 from pathlib import Path
 
 ROOT_PATH = Path(__file__).parent
@@ -70,12 +71,14 @@ cont = 0
 for comentario in comentarios:
     print(comentario)
     cont += 1
+comentarios_normalizados = Normalization_comments.normalization_comment(comentarios)
+
 
 print('Número do comentários coletados: ',cont)
 
 print('Inserindo no banco de dados')
 DB.insert_comment(
-                    comentarios,
+                    comentarios_normalizados,
                     input_Instagram.set_data(),
                     input_Instagram.set_fonte_jornal()
                   )
