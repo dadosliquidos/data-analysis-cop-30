@@ -24,13 +24,16 @@ class Scrape:
         '''
             retorna uma lista com os comentários do post do instagram
         '''
-        comments = html.find_all('span','x1lliihq x1plvlek xryxfnj x1n2onr6 xyejjpt x15dsfln x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xl565be xo1l8bm x5n08af x10wh9bi xpm28yp x8viiok x1o7cslx')
+        comments = html.find_all('div','html-div xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x9f619 xjbqb8w x78zum5 x15mokao x1ga7v0g x16uus16 xbiv7yw x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1cy8zhl x1oa3qoh x1nhvcw1')
         list_comments = []
         for comment in comments:
-          #  print(comment.text.strip()) 
+            #print(comment.text.strip()) 
             list_comments.append(comment.text.strip())
 
         return list_comments
+
+
+
     
     @classmethod
     def scroll_comments(cls,driver):
