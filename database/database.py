@@ -75,7 +75,20 @@ class DB:
 
 
 
-     
+    @classmethod
+    def read_table(cls,table):
+        con = DB.conexao()
+        cursor = con.cursor()
+        comentarios = list()
+        query = f'select * from {table}'
+        cursor.execute(query)
+        
+        for i in cursor:
+            comentarios.append(i)
+        
+        return comentarios
+            
+
 
 
 
