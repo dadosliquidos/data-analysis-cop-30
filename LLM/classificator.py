@@ -2,13 +2,6 @@ from ollama import chat
 from ollama import ChatResponse
 
 
-
-
-print()
-# or access fields directly from the response object
-
-
-
 class Chat:
     def __init__(self):
         pass
@@ -16,11 +9,20 @@ class Chat:
     @classmethod
     def classificator(cls,comment):
         
-        promt = '''Classifique o sentimento da seguinte frase em e retorne  apenas se é "Positivo", "Negativo" ou "Neutro", sendo que será um comentario de um Post do instagram  em caso de incertezas, classifique como Neutra. 
-              Caso  haja conteúdo visíve, classifique como "Neutro.
-              Não justifique a sua classificação. 
-              avalie emojis também e retorne  apenas se é "Positivo", "Negativo" ou "Neutro".
-              A  seguir frase: {}  '''.format(comment)
+        promt = f'''
+          Você atuará como classificador de sentimentos. Cabe ressaatar que a Analise de sentimentos, há subtema de Polarização: tecnica que extrai sentimentos se é positivo, negativo ou neutro.
+          voce irá classificar comentários coletados de uma postagem da rede social Instagram. Nesses comentários terá emojis, ou seja, podem indicar emoções, como ironia.
+          
+          caso haja algum comentário cuja o sentimento não seja identificável, classifique como "Neutro".
+          observação: Não de justificativas e somente retorne apenas as palavras abaixo :
+         
+              Positivo
+              Negativo
+              Neutro
+        
+          comentario coletado : {comment}
+
+        '''
         
         response: ChatResponse = chat(model='llama3', messages=[
                   {
