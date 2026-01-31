@@ -2,7 +2,7 @@ from database.database import DB
 from classes.process.pnl import Pnl
 from classes.process.analyze_sentiment import Analyzer
 from classes.Instagram.scrapy import Scrape
-from llmms.teste import Chat
+from LLM.classificator import Chat
 import pandas as pd
 from dotenv import load_dotenv
 import os
