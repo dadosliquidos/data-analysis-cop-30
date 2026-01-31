@@ -9,22 +9,14 @@ import os
 
 
 
-con = DB.conexao()
 load_dotenv()
 
-df = Pnl.get_comment(con)
 
 
-#comentarios = Pnl.apply_stop_word(df)
-#comentarios = 
+comentarios = DB.read_table(os.getenv('TABLE_C'))
 
-
-comentarios = DB.read_table(os.getenv('TABLE_W_S'))
-
-for comentario in comentarios:
-    #sentimento = Analyzer.analyze_sentiment(comentario)
+for index,comentario in enumerate(comentarios): 
     sentimento = Chat.classificator(comment=comentario[1])
     DB.insert_comment_w_sentiment(comentario[1],sentimento)
+    print(sentimento)
 
-
- 
