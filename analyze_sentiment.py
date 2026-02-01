@@ -18,5 +18,5 @@ comentarios = DB.read_table(os.getenv('TABLE_C'))
 for index,comentario in enumerate(comentarios): 
     sentimento = Chat.classificator(comment=comentario[1])
     DB.insert_comment_w_sentiment(comentario[1],sentimento)
-    print(sentimento)
+
 
