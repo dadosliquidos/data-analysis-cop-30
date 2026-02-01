@@ -8,15 +8,15 @@ import time
 import pandas as pd
 from bs4 import BeautifulSoup 
 import ast
-from classes.Instagram.login import Login
-from classes.Instagram.scrapy import Scrape
-from classes.Instagram.post_instagram import PostInstagram
-from classes.process.pnl import Pnl
-from classes.visualization.plot_word_cloud import Plot_word_cloud
-from classes.visualization.plot_bar import Plot_bar
-from classes.process.analyze_sentiment  import Analyzer
-from database.database import DB
-from database.normalization_comments import Normalization_comments
+from src.classes.Instagram.login import Login
+from src.classes.Instagram.scrapy import Scrape
+from src.classes.Instagram.post_instagram import PostInstagram
+from src.classes.process.pnl import Pnl
+from src.classes.visualization.plot_word_cloud import Plot_word_cloud
+from src.classes.visualization.plot_bar import Plot_bar
+from src.classes.process.analyze_sentiment  import Analyzer
+from src.database.database import DB
+from src.database.normalization_comments import Normalization_comments
 from pathlib import Path
 
 ROOT_PATH = Path(__file__).parent

@@ -1,8 +1,8 @@
-from database.database import DB
-from classes.process.pnl import Pnl
-from classes.process.analyze_sentiment import Analyzer
-from classes.Instagram.scrapy import Scrape
-from LLM.classificator import Chat
+from src.database.database import DB
+from src.classes.process.pnl import Pnl
+from src.classes.process.analyze_sentiment import Analyzer
+from src.classes.Instagram.scrapy import Scrape
+from src.LLM.classificator import Chat
 import pandas as pd
 from dotenv import load_dotenv
 import os
