@@ -2,6 +2,8 @@ import mysql.connector
 from mysql.connector import errorcode
 from dotenv import load_dotenv
 import pandas as pd
+from tqdm import tqdm
+import time
 import os
 
 
@@ -47,7 +49,7 @@ class DB:
             
         ultimo_id =  cursor.lastrowid    
         
-       
+        
         return ultimo_id
     
     @classmethod
@@ -60,8 +62,8 @@ class DB:
         
         df = pd.DataFrame(list_comment,columns=['comentarios'])
         
-        for comment in df['comentarios']:
-    
+        for comment in tqdm(df['comentarios'],desc='Persistindo comentários ao Banco de Dados.'):
+            time.sleep(1)
             query = f'insert into {TABLE_C}(comentario,Posts_id_posts) values ("{comment}","{id_post}")'
             
             cursor.execute(query)

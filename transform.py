@@ -29,16 +29,10 @@ where link = '{LINK}'
 
 comentarios = DB.read_table(query)
 
-for index in comentarios: 
+for index in tqdm(comentarios,desc='Extraindo análise de sentimentos'): 
     sentimento = Chat.classificator(comment=index[2])
     time.sleep(1)
     DB.insert_comment_w_sentiment(
                 sentiment=sentimento,
                 comentario_id=index[1],
                 post_id=index[0])
-
-
-"insert into comentarios_com_sentimentos(sentimento,comentarios_id_comentarios,Posts_id_posts) values('positivo',4,2);"
-'''for i in comentarios:
-    print(f'Post: {i[0]}\nid_comentario: {i[1]}\ncomentario: {i[2]}')
-'''
